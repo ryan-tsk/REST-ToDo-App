@@ -1,0 +1,25 @@
+<div class="task-form">
+  <form (ngSubmit)="addNewTask()">
+    <input 
+      type = "text" 
+      name = "inputTaskLabel" 
+      placeholder = "Enter label here..."
+      class = "input-label"
+      [(ngModel)]="newTask.label"
+    />
+
+    <input
+      type = "text"
+      name = "inputTaskDesc"
+      placeholder= "Enter description here..."
+      class = "input-desc"
+      [(ngModel)]="newTask.description"
+    />
+
+  <input
+    type = "submit"
+    value = "Add Task"
+    class = "submit-task"
+  />
+  </form>
+</div>
