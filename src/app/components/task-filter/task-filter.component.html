@@ -1,1 +1,5 @@
-<p>task-filter works!</p>
+<div class="filter">
+  <button class= "filter-btn clipboard" (click)="currentFilter=''"> <i class="fa-solid fa-clipboard-list"></i> All Tasks </button>
+  <button class= "filter-btn progress" (click)="currentFilter='progress'"> <i class="fa-solid fa-person-running"></i> In Progress </button>
+  <button class= "filter-btn complete" (click)="currentFilter='done'"> <i class="fa-solid fa-check"></i>Completed </button>
+</div>

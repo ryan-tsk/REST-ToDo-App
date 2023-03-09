@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Task } from 'src/app/Task/task.type';
 
 @Component({
   selector: 'app-task-filter',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-filter.component.scss']
 })
 export class TaskFilterComponent implements OnInit {
+
+  @Input() taskList: Task[] 
+  @Output() taskListEvent = new EventEmitter<Task[]>()
 
   constructor() { }
 

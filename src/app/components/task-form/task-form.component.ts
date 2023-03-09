@@ -8,7 +8,7 @@ import { Task } from 'src/app/Task/task.type';
 })
 export class TaskFormComponent implements OnInit {
 
-  @Input() currentID = 0
+  @Input() currentID: number = 0
   @Output() newTaskEvent = new EventEmitter<Task>()
 
   newTask: Task = {

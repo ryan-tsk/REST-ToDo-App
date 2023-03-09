@@ -1,1 +1,39 @@
-<p>task-item works!</p>
+<td>
+  <div *ngIf="!editMode || editID !== task.id ; else editLabel" 
+    class="todo-item-label"
+    (click)="editModeOn(task)">{{ task.label }}
+  </div>
+  <ng-template #editLabel>
+    <td>
+      <input type="text" 
+      class="task-item-edit" 
+      [(ngModel)]="task.label" 
+      (blur)="editTask(task)" 
+      (keyup.enter)="editTask(task)" 
+      (keyup.esc)="cancelEdit(task)" autofocus>
+  </ng-template>
+</td>
+
+<td>
+  <div *ngIf="!editMode || (editID !== task.id); else editDesc" 
+  class="todo-item-label"
+  (click)="editModeOn(task)">{{ task.description }}
+  </div>
+  <ng-template #editDesc>
+    <input type="text" 
+    class="task-item-edit" 
+    [(ngModel)]="task.description" 
+    (blur)="editTask(task)" 
+    (keyup.enter)="editTask(task)" 
+    (keyup.esc)="cancelEdit(task)" autofocus>
+  </ng-template>
+</td>
+
+<td><div *ngIf="task.done; else notDone" class="complete"> <i class="fa-solid fa-check"> </i>Completed </div>
+  <ng-template #notDone>
+    <div class="progress">
+     <i class="fa-solid fa-person-running"></i> In Progress 
+    </div></ng-template>
+</td>
+<td><button class="done" (click)="markTask(task)"> <i class="fa-solid fa-check"></i></button></td>
+<td><button class="close" (click)="removeTask(task)"><i class="fa fa-close"></i></button></td>
