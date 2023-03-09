@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/Task/task.type';
+import { taskAPI } from 'src/app/API/api.service';
 
 @Component({
   selector: 'app-task-form',
@@ -18,12 +19,13 @@ export class TaskFormComponent implements OnInit {
     done: false
   }
 
-  constructor() { }
+  constructor(private taskService: taskAPI) { }
 
   ngOnInit() {
   }
 
   addNewTask(){
+    this.taskService.addTask(this.newTask).subscribe()
     this.newTaskEvent.emit(this.newTask)
   }
 
